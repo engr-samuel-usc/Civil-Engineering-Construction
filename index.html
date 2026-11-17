@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Samuel C.| Civil Engineering & Construction</title>
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{background:#01101f;color:#0f172a}
+.top{background:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #e2e8f0}
+.logo{display:flex;gap:10px;align-items:center}
+.logo-icon{width:42px;height:42px;background:#f5b83d;border-radius:8px;display:grid;place-items:center;font-size:22px}
+.logo b{font-size:19px;color:#0f2a4a}.logo b span{color:#d99a1f}
+.logo small{display:block;font-size:10px;letter-spacing:2px;color:#64748b;font-weight:700}
+.hero{background:#0f2a4a;color:#fff;padding:36px 20px;text-align:center}
+.hero h1{font-size:32px;line-height:1.1}.hero p{color:#cbd5e1;margin:12px auto;max-width:600px}
+.btn{border:0;border-radius:999px;padding:12px 20px;font-weight:800;cursor:pointer}
+.btn-yellow{background:#f5b83d}.btn-white{background:#fff}.btn-dark{background:#0f2a4a;color:#fff}
+.wrap{padding:18px;max-width:1100px;margin:auto}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.filters button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:700}
+.filters button.active{background:#0f2a4a;color:#fff}
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:46px}}
+@media(min-width:1000px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);cursor:pointer;border:1px solid #e2e8f0}
+.card-img{position:relative}
+.card-img img{width:100%;height:220px;object-fit:cover;display:block}
+.badge{position:absolute;top:14px;left:14px;padding:7px 14px;border-radius:999px;font-weight:800;font-size:13px}
+.badge.done{background:#f5b83d;color:#000}.badge.ongoing{background:#0f2a4a;color:#fff}
+.card-body{padding:18px}
+.card-body small{color:#d99a1f;font-weight:800;letter-spacing:3px;font-size:12px}
+.card-body h3{font-size:22px;color:#0f2a4a;line-height:1.2;margin:8px 0;text-transform:uppercase}
+.card-body p{color:#64748b;font-size:14px;line-height:1.6}
+.line{border-top:1px solid #e2e8f0;margin:14px 0;padding-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.line span{display:flex;gap:8px;align-items:flex-start}
+.detail{display:none;background:#fff;border-radius:20px;padding:18px;margin-top:18px;border:1px solid #e2e8f0}
+.detail img{width:100%;height:280px;object-fit:cover;border-radius:14px}
+.detail h2{color:#0f2a4a;margin:12px 0 6px;text-transform:uppercase}
+.detail p{color:#475569;line-height:1.6;font-size:14px}
+.detail ul{margin:10px 0 10px 18px;color:#475569;font-size:14px;line-height:1.7}
+.contact{background:#0f2a4a;color:#fff;border-radius:18px;padding:20px;margin:22px 0;text-align:center}
+.contact input,.contact textarea,.contact select{width:100%;padding:12px;border-radius:10px;border:0;outline:none;margin:6px 0}
+.wa{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;font-weight:800;z-index:30;text-decoration:none}
+.footer{background:#020617;color:#94a3b8;padding:20px;text-align:center;font-size:13px}
+</style>
+  </head>
+  <body>
+    <div class="top"><div class="logo"><div class="logo-icon">🏠</div><div><b>ENGINEER <span>SAMUEL C.</span></b><small>CIVIL ENGINEERING & CONSTRUCTION</small></div></div><div style="font-size:26px">☰</div></div>
+<div class="hero"><h1>Our Projects</h1><p>Real sites. Real structures. Built to last — from foundation to finishing.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px"><button class="btn btn-yellow" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">View All Projects</button><button class="btn btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button></div></div>
+
+<div class="wrap">
+<div style="display:flex;gap:10px;text-align:center"><div style="flex:1;background:#0f2a4a;color:#fff;padding:14px;border-radius:14px"><b style="font-size:22px;color:#f5b83d;display:block">50+</b>Projects Shown</div><div style="flex:1;background:#0f2a4a;color:#fff;padding:14px;border-radius:14px"><b style="font-size:22px;color:#f5b83d;display:block">35</b>Completed</div><div style="flex:1;background:#0f2a4a;color:#fff;padding:14px;border-radius:14px"><b style="font-size:22px;color:#f5b83d;display:block">15</b>Ongoing</div></div>
+
+<div class="filters">
+<button class="active" onclick="filterP('all',this)">All</button>
+<button onclick="filterP('RESIDENTIAL',this)">Residential</button>
+<button onclick="filterP('INFRASTRUCTURE',this)">Infrastructure</button>
+<button onclick="filterP('COMMERCIAL',this)">Commercial</button>
+<button onclick="filterP('Completed',this)">Completed</button>
+<button onclick="filterP('Ongoing',this)">Ongoing</button>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="detail" id="detail"></div>
+
+<div class="contact" id="contact"><h2>Get a Free Quote</h2><p style="color:#cbd5e1;margin:8px 0">Tell us about your project — we go reply within 24 hours.</p><input id="cName" placeholder="Your Name"><input id="cPhone" placeholder="Phone / WhatsApp"><select id="cType"><option>Residential Building</option><option>Commercial Building</option><option>Road / Drainage</option><option>Bridge / Infrastructure</option><option>Foundation Works</option></select><textarea id="cMsg" placeholder="Describe your project: location, land size, number of rooms, budget..."></textarea><button class="btn btn-yellow" style="width:100%" onclick="sendQuote()">Send on WhatsApp →</button><p style="font-size:12px;color:#94a3b8;margin-top:10px">Engineer Samuel C. • Civil Engineering & Construction • Nigeria</p></div>
+</div>
+<a class="wa" href="https://wa.me/2347018829008?text=Hello%20Engineer%20Godswill,%20I%20want%20a%20quote" target="_blank">💬 WhatsApp</a>
+<div class="footer">© 2026 Engineer Samuel C. • Civil Engineering & Construction • Powered by Sampush</div>
+
+   <script>
+const projects=[
+{id:1, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Royal Family Duplex', loc:'Abuja', work:'Design & construction', year:'2025', img:'royal-duplex.jpg', desc:'Royal family duplex with modern roofing and luxury finishing.', points:['4 Bedrooms','Modern Roof','Luxury Finishing']},
+
+{id:2, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Family Bungalow', loc:'Owerri', work:'Design & construction', year:'2024', img:'family-bungalow.jpg', desc:'Family bungalow with fence, gate and full external works.', points:['4 Bedrooms','Fence & Gate','External Works']},
+
+{id:3, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom White Palace Villa', loc:'Lagos', work:'Design & construction', year:'2025', img:'white-palace.jpg', desc:'White palace villa with pillars, gold design and luxury finishing.', points:['5 Bedrooms','Pillars & Gold Design','Luxury Finishing']},
+
+{id:4, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Onyx Luxury Duplex', loc:'Port Harcourt', work:'Design & construction', year:'2024', img:'onyx-duplex.jpg', desc:'Black and white luxury duplex with modern finishing and parking.', points:['5 Bedrooms','Modern Finishing','Parking Space']},
+
+{id:5, cat:'RESIDENTIAL', status:'Ongoing', title:'6-Bedroom Majestic Mansion', loc:'Enugu', work:'Design & construction', year:'2026', img:'majestic-mansion.jpg', desc:'Majestic mansion with big gate, fine design and luxury finishing.', points:['6 Bedrooms','Big Gate','Luxury Finishing']},
+
+{id:6, cat:'RESIDENTIAL', status:'Ongoing', title:'4-Bedroom Sunset Modern Villa', loc:'Abuja', work:'Design & construction', year:'2026', img:'sunset-villa.jpg', desc:'Modern villa with glass balcony, sunset view and clean design.', points:['4 Bedrooms','Glass Balcony','Modern Design']},
+
+{id:7, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Twin-Garage Duplex', loc:'Anambra', work:'Design & construction', year:'2025', img:'twin-garage-duplex.jpg', desc:'Twin-garage duplex with round pillar, modern design and parking for 2 cars.', points:['5 Bedrooms','Twin Garage','Modern Design']},
+
+{id:8, cat:'RESIDENTIAL', status:'Ongoing', title:'3-Bedroom Site Bungalow — Under Construction', loc:'Enugu', work:'Design & construction', year:'2026', img:'site-bungalow.jpg', desc:'3-bedroom bungalow still under construction with stone-coated roof.', points:['3 Bedrooms','Stone-Coated Roof','Under Construction']},
+
+{id:9, cat:'RESIDENTIAL', status:'Completed', title:'Modern Farmhouse', loc:'Enugu', work:'Design & construction', year:'2025', img:'modern-farmhouse.jpg', desc:'Beautiful modern farmhouse with spacious surroundings, elegant roofing and natural finishing.', points:['Spacious Living Area','Modern Roofing','Beautiful Landscape']},
+
+{id:10, cat:'RESIDENTIAL', status:'Completed', title:'Luxury Penthouse', loc:'Lagos', work:'Design & construction', year:'2025', img:'luxury-penthouse.jpg', desc:'Luxury penthouse with glass walls, rooftop relaxation area and breathtaking city views.', points:['Glass Walls','Rooftop Terrace','City View']},
+
+{id:11, cat:'RESIDENTIAL', status:'Completed', title:'Contemporary Villa', loc:'Abuja', work:'Design & construction', year:'2025', img:'contemporary-villa.jpg', desc:'Contemporary villa featuring modern architecture, beautiful outdoor spaces and luxury finishing.', points:['Modern Architecture','Outdoor Lounge','Luxury Finishing']},
+
+{id:12, cat:'RESIDENTIAL', status:'Ongoing', title:'Modern Flat Apartment', loc:'Owerri', work:'Design & construction', year:'2026', img:'modern-flat-apartment.jpg', desc:'Modern residential apartment building with spacious flats, balconies and stylish exterior finishing.', points:['Multiple Apartments','Private Balconies','Modern Design']},
+
+{id:13, cat:'RESIDENTIAL', status:'Completed', title:'Luxury Storey Building', loc:'Port Harcourt', work:'Design & construction', year:'2025', img:'luxury-storey-building.jpg', desc:'Elegant multi-storey residential building with modern windows, balconies and quality finishing.', points:['Multiple Floors','Modern Balconies','Quality Finishing']},
+
+{id:14, cat:'RESIDENTIAL', status:'Ongoing', title:'Luxury Estate House', loc:'Abuja', work:'Design & construction', year:'2025', img:'luxury-estate-house.jpg', desc:'Premium estate residence with beautiful landscaping, security features and modern architecture.', points:['Estate Residence','Security Features','Beautiful Landscape']},
+
+{id:15, cat:'RESIDENTIAL', status:'Ongoing', title:'Smart Home Villa', loc:'Lagos', work:'Design & construction', year:'2026', img:'smart-home-villa.jpg', desc:'Modern smart home villa designed with intelligent lighting, security systems and contemporary finishing.', points:['Smart Lighting','Smart Security','Modern Finishing']},
+
+{id:16, cat:'RESIDENTIAL', status:'Completed', title:'Beachfront Mansion', loc:'Lagos', work:'Design & construction', year:'2025', img:'beachfront-mansion.jpg', desc:'Magnificent beachfront mansion with ocean views, swimming pool and luxury outdoor living.', points:['Ocean View','Swimming Pool','Luxury Outdoor Space']},
+
+{id:17, cat:'RESIDENTIAL', status:'Completed', title:'Traditional African Modern House', loc:'Anambra', work:'Design & construction', year:'2025', img:'african-modern-house.jpg', desc:'Beautiful African-inspired residence combining traditional architectural elements with modern luxury.', points:['African Architecture','Modern Roofing','Luxury Finishing']},
+
+{id:18, cat:'RESIDENTIAL', status:'Completed', title:'3-Bedroom Modern Duplex', loc:'Enugu', work:'Design & construction', year:'2025', img:'three-bedroom-duplex.jpg', desc:'Stylish three-bedroom duplex with contemporary architecture and a beautiful exterior design.', points:['3 Bedrooms','Modern Architecture','Car Parking']},
+
+{id:19, cat:'RESIDENTIAL', status:'Ongoing', title:'Presidential Luxury Mansion', loc:'Abuja', work:'Design & construction', year:'2026', img:'presidential-mansion.jpg', desc:'Grand presidential-style mansion with impressive pillars, spacious compounds and premium finishing.', points:['Luxury Architecture','Grand Pillars','Premium Finishing']},
+
+{id:20, cat:'RESIDENTIAL', status:'Completed', title:'Executive Terrace Duplex', loc:'Benin City', work:'Design & construction', year:'2025', img:'executive-terrace-duplex.jpg', desc:'Elegant terrace duplex featuring modern architecture, private parking and stylish interior spaces.', points:['Terrace Design','Private Parking','Modern Interior']},
+
+{id:21, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Grand Executive Duplex', loc:'Abuja', work:'Design & construction', year:'2025', img:'grand-executive-duplex.jpg', desc:'Grand executive duplex with beautiful pillars, modern roofing and luxury exterior finishing.', points:['5 Bedrooms','Grand Pillars','Luxury Finishing']},
+
+{id:22, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Modern Detached Duplex', loc:'Enugu', work:'Design & construction', year:'2025', img:'modern-detached-duplex.jpg', desc:'Beautiful detached duplex with spacious compound, modern windows and elegant architecture.', points:['4 Bedrooms','Detached Building','Spacious Compound']},
+
+{id:23, cat:'RESIDENTIAL', status:'Ongoing', title:'7-Bedroom Royal Mansion', loc:'Lagos', work:'Design & construction', year:'2026', img:'royal-mansion.jpg', desc:'Magnificent seven-bedroom mansion with grand entrance, luxury finishing and spacious parking.', points:['7 Bedrooms','Grand Entrance','Luxury Finishing']},
+
+{id:24, cat:'RESIDENTIAL', status:'Completed', title:'3-Bedroom Contemporary Bungalow', loc:'Owerri', work:'Design & construction', year:'2025', img:'contemporary-bungalow.jpg', desc:'Contemporary bungalow with modern roofing, beautiful windows and a welcoming entrance.', points:['3 Bedrooms','Modern Roofing','Beautiful Entrance']},
+
+{id:25, cat:'RESIDENTIAL', status:'Completed', title:'6-Bedroom Luxury Family Home', loc:'Port Harcourt', work:'Design & construction', year:'2024', img:'luxury-family-home.jpg', desc:'Spacious family home with elegant architecture, large windows and premium finishing.', points:['6 Bedrooms','Large Windows','Premium Finishing']},
+
+{id:26, cat:'RESIDENTIAL', status:'Completed', title:'Modern Glass Duplex', loc:'Abuja', work:'Design & construction', year:'2025', img:'modern-glass-duplex.jpg', desc:'Architectural masterpiece featuring large glass windows, stylish balconies and modern exterior design.', points:['Glass Windows','Stylish Balconies','Modern Architecture']},
+
+{id:27, cat:'RESIDENTIAL', status:'Ongoing', title:'4-Bedroom Garden Villa', loc:'Enugu', work:'Design & construction', year:'2026', img:'garden-villa.jpg', desc:'Beautiful garden villa surrounded by greenery with elegant outdoor relaxation spaces.', points:['4 Bedrooms','Garden Space','Outdoor Lounge']},
+
+{id:28, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Mediterranean Villa', loc:'Lagos', work:'Design & construction', year:'2025', img:'mediterranean-villa.jpg', desc:'Mediterranean-inspired villa with elegant arches, attractive roofing and luxury finishing.', points:['5 Bedrooms','Elegant Arches','Luxury Design']},
+
+{id:29, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Smart Duplex', loc:'Anambra', work:'Design & construction', year:'2025', img:'smart-duplex.jpg', desc:'Modern smart duplex with intelligent lighting, security systems and beautiful interior spaces.', points:['4 Bedrooms','Smart Technology','Modern Interior']},
+
+{id:30, cat:'RESIDENTIAL', status:'Completed', title:'8-Bedroom Presidential Villa', loc:'Abuja', work:'Design & construction', year:'2025', img:'presidential-villa.jpg', desc:'Massive presidential villa with grand architectural features, luxury entrance and premium finishing.', points:['8 Bedrooms','Grand Architecture','Premium Finishing']},
+
+{id:31, cat:'RESIDENTIAL', status:'Completed', title:'3-Bedroom Semi-Detached Duplex', loc:'Benin City', work:'Design & construction', year:'2025', img:'semi-detached-duplex.jpg', desc:'Beautiful semi-detached duplex with modern exterior design and private parking.', points:['3 Bedrooms','Semi-Detached','Private Parking']},
+
+{id:32, cat:'RESIDENTIAL', status:'Ongoing', title:'Luxury Hilltop Residence', loc:'Jos', work:'Design & construction', year:'2026', img:'hilltop-residence.jpg', desc:'Luxury hilltop residence with breathtaking surroundings, elegant balconies and modern architecture.', points:['Hilltop Location','Elegant Balconies','Modern Design']},
+
+{id:33, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Scandinavian House', loc:'Enugu', work:'Design & construction', year:'2025', img:'scandinavian-house.jpg', desc:'Minimalist Scandinavian-inspired home with clean lines, natural materials and beautiful lighting.', points:['Minimalist Design','Natural Materials','Modern Lighting']},
+
+{id:34, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Classic Duplex', loc:'Owerri', work:'Design & construction', year:'2024', img:'classic-duplex.jpg', desc:'Classic family duplex with decorative pillars, beautiful roofing and spacious outdoor areas.', points:['5 Bedrooms','Decorative Pillars','Spacious Compound']},
+
+{id:35, cat:'RESIDENTIAL', status:'Ongoing', title:'Luxury Courtyard Mansion', loc:'Lagos', work:'Design & construction', year:'2026', img:'courtyard-mansion.jpg', desc:'Luxury mansion designed around a beautiful private courtyard with modern architectural details.', points:['Private Courtyard','Luxury Architecture','Garden Space']},
+
+{id:36, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Flat-Roof Duplex', loc:'Abuja', work:'Design & construction', year:'2025', img:'flat-roof-duplex.jpg', desc:'Modern flat-roof duplex with geometric architecture, glass balconies and stylish finishing.', points:['4 Bedrooms','Flat Roof','Glass Balconies']},
+
+{id:37, cat:'RESIDENTIAL', status:'Completed', title:'Luxury Mountain View Villa', loc:'Jos', work:'Design & construction', year:'2025', img:'mountain-view-villa.jpg', desc:'Beautiful mountain-view villa with expansive windows and peaceful outdoor living areas.', points:['Mountain View','Large Windows','Outdoor Living']},
+
+{id:38, cat:'RESIDENTIAL', status:'Completed', title:'6-Bedroom Royal Duplex', loc:'Port Harcourt', work:'Design & construction', year:'2025', img:'royal-duplex-six-bedroom.jpg', desc:'Impressive royal duplex with luxury pillars, elegant balconies and a spacious compound.', points:['6 Bedrooms','Luxury Pillars','Elegant Balconies']},
+
+{id:39, cat:'RESIDENTIAL', status:'Ongoing', title:'Modern Lakefront Villa', loc:'Lagos', work:'Design & construction', year:'2026', img:'lakefront-villa.jpg', desc:'Contemporary lakefront villa with panoramic water views, outdoor relaxation and modern finishing.', points:['Lake View','Outdoor Relaxation','Modern Finishing']},
+
+{id:40, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Luxury Terrace Home', loc:'Abuja', work:'Design & construction', year:'2025', img:'luxury-terrace-home.jpg', desc:'Elegant terrace residence with contemporary architecture and beautifully designed interiors.', points:['4 Bedrooms','Terrace Architecture','Modern Interior']},
+
+{id:41, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Colonial Style Mansion', loc:'Enugu', work:'Design & construction', year:'2024', img:'colonial-style-mansion.jpg', desc:'Classic colonial-inspired mansion with impressive columns, elegant windows and beautiful landscaping.', points:['5 Bedrooms','Classic Columns','Landscaping']},
+
+{id:42, cat:'RESIDENTIAL', status:'Ongoing', title:'Modern Duplex With Swimming Pool', loc:'Lagos', work:'Design & construction', year:'2026', img:'duplex-swimming-pool.jpg', desc:'Luxury modern duplex with private swimming pool, outdoor lounge and beautiful exterior finishing.', points:['Private Pool','Outdoor Lounge','Luxury Design']},
+
+{id:43, cat:'RESIDENTIAL', status:'Completed', title:'3-Bedroom Affordable Family Home', loc:'Nsukka', work:'Design & construction', year:'2025', img:'affordable-family-home.jpg', desc:'Affordable and beautiful family home with functional spaces and durable building materials.', points:['3 Bedrooms','Functional Design','Durable Materials']},
+
+{id:44, cat:'RESIDENTIAL', status:'Completed', title:'7-Bedroom Luxury Estate Mansion', loc:'Abuja', work:'Design & construction', year:'2025', img:'estate-mansion.jpg', desc:'Grand estate mansion with impressive exterior architecture, private parking and beautiful landscaping.', points:['7 Bedrooms','Private Parking','Beautiful Landscaping']},
+
+{id:45, cat:'RESIDENTIAL', status:'Ongoing', title:'Modern Eco-Friendly Villa', loc:'Anambra', work:'Design & construction', year:'2026', img:'eco-friendly-villa.jpg', desc:'Environmentally conscious villa with natural lighting, energy-efficient features and green surroundings.', points:['Eco-Friendly Design','Natural Lighting','Energy Efficient']},
+
+{id:46, cat:'RESIDENTIAL', status:'Completed', title:'4-Bedroom Luxury Roof House', loc:'Owerri', work:'Design & construction', year:'2025', img:'luxury-roof-house.jpg', desc:'Beautiful residence with a distinctive roof design, elegant exterior and spacious living areas.', points:['4 Bedrooms','Distinctive Roof','Spacious Living']},
+
+{id:47, cat:'RESIDENTIAL', status:'Completed', title:'5-Bedroom Modern Family Duplex', loc:'Benin City', work:'Design & construction', year:'2025', img:'modern-family-duplex.jpg', desc:'Modern family duplex with stylish balconies, beautiful windows and a secure compound.', points:['5 Bedrooms','Stylish Balconies','Secure Compound']},
+
+{id:48, cat:'RESIDENTIAL', status:'Ongoing', title:'Luxury Sky Garden Residence', loc:'Lagos', work:'Design & construction', year:'2026', img:'sky-garden-residence.jpg', desc:'Contemporary luxury residence with rooftop garden, beautiful outdoor spaces and modern architecture.', points:['Rooftop Garden','Outdoor Spaces','Modern Architecture']},
+
+{id:49, cat:'RESIDENTIAL', status:'Completed', title:'6-Bedroom Executive Family Mansion', loc:'Port Harcourt', work:'Design & construction', year:'2025', img:'executive-family-mansion.jpg', desc:'Executive family mansion with grand entrance, spacious rooms and luxury finishing.', points:['6 Bedrooms','Grand Entrance','Luxury Finishing']},
+
+{id:50, cat:'RESIDENTIAL', status:'Completed', title:'Modern African Luxury Villa', loc:'Enugu', work:'Design & construction', year:'2025', img:'african-luxury-villa.jpg', desc:'Unique African-inspired luxury villa combining cultural architectural details with contemporary design.', points:['African-Inspired Design','Modern Architecture','Luxury Finishing']}
+]
+function render(list){document.getElementById('grid').innerHTML=list.map(p=>`<div class="card" onclick="openP(${p.id})"><div class="card-img"><img src="${p.img}"><span class="badge ${p.status==='Completed'?'done':'ongoing'}">${p.status}</span></div><div class="card-body"><small>${p.cat}</small><h3>${p.title}</h3><p>${p.desc}</p><div class="line"><span>📍 ${p.loc}</span><span>🔧 ${p.work}</span><span>📅 ${p.year}</span></div></div></div>`).join('');}
+function filterP(cat,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(cat==='all')render(projects);else if(cat==='Completed'||cat==='Ongoing')render(projects.filter(p=>p.status===cat));else render(projects.filter(p=>p.cat===cat));document.getElementById('detail').style.display='none';}
+function openP(id){const p=projects.find(x=>x.id===id);const d=document.getElementById('detail');d.style.display='block';d.innerHTML=`<img src="${p.img}"><h2>${p.title}</h2><p style="color:#d99a1f;font-weight:800;letter-spacing:2px">${p.cat} • ${p.status} • ${p.year}</p><p style="margin-top:8px">${p.desc}</p><ul>${p.points.map(x=>`<li>${x}</li>`).join('')}</ul><p><b>Location:</b> ${p.loc}<br><b>Work:</b> ${p.work}</p><div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap"><button class="btn btn-yellow" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Similar Project →</button><button class="btn btn-dark" onclick="document.getElementById('detail').style.display='none'">Close</button></div>`;d.scrollIntoView({behavior:'smooth'});}
+function sendQuote(){const n=document.getElementById('cName').value||'Client';const ph=document.getElementById('cPhone').value;const t=document.getElementById('cType').value;const m=document.getElementById('cMsg').value;window.open('https://wa.me/2347018829008?text='+encodeURIComponent(`Hello Engineer Samuel, I am ${n}. Phone: ${ph}. Project: ${t}. Details: ${m}`),'_blank');}
+render(projects);
+</script>
+  </body>
+</html>
